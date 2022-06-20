@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const validation = require("../middlewares/registration/validate_registration_fields");
+const validation = require("../middlewares/validations/validate_registration_fields");
 const hashPassword = require("../middlewares/registration/hash_password");
 const registrationController = require("../controllers/register_user");
 
