@@ -2,19 +2,32 @@ const mysql = require("../../config/mysql_config");
 
 exports.findExistingUser = (params, callback) => {
   const phonenumber = params["phonenumber"];
+  const email = params["email"];
+  var isEmailMatchSqlQuery = `SELECT email FROM users WHERE email = '${email}'`;
   var isPhonenumberMatchSqlQuery = `SELECT phonenumber FROM users WHERE phonenumber = ${phonenumber}`;
 
-  mysql.query(isPhonenumberMatchSqlQuery, function (err, result) {
-    if (err) return callback({ message: "error" }, null);
+  mysql.query(isEmailMatchSqlQuery, function (err, result) {
+    if (err) return callback({ message: err.message }, null);
+    console.log(result);
     if (result.length == 0) {
       //? user does not exists
-      return callback(null, "passed");
+      //? check with phonenumber
+      mysql.query(isPhonenumberMatchSqlQuery, function (err, result) {
+        if (err) return callback({ message: "error" }, null);
+        if (result.length == 0) {
+          //? user does not exists
+          return callback(null, "passed");
+        } else {
+          //? user already exists
+          return callback(
+            { message: "user already exists with this phonenumber" },
+            null
+          );
+        }
+      });
     } else {
       //? user already exists
-      return callback(
-        { message: "user already exists with this phonenumber" },
-        null
-      );
+      return callback({ message: "user already exists with this email" }, null);
     }
   });
 };
@@ -68,7 +81,6 @@ exports.insertTokens = (params, callback) => {
         `;
 
   mysql.query(tokenSqlQuery, function (err, result) {
-    console.log("i am here 1");
     if (err) return callback({ message: "error registering user" }, null);
     return callback(null, "passed");
   });
@@ -106,7 +118,6 @@ exports.insertGeoLocation = (params, callback) => {
           `;
 
   mysql.query(geoTableQuery, function (err, result) {
-    console.log("i am here 2");
     if (err) return callback({ message: "error registering user" }, null);
     //? else
     return callback(null, "passed");
@@ -131,7 +142,6 @@ exports.getUserDetails = (params, callback) => {
   mysql.query(userDetailsSqlQuery, function (err, result) {
     if (err) return callback({ message: "error" }, null);
     if (result.length == 0) {
-      console.log("i am here 4");
       return callback({ message: "no user found" }, null);
     }
     const user = result[0];

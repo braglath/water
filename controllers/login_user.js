@@ -25,7 +25,6 @@ module.exports = function (req, res, next) {
             userID: userID,
           },
           function (err, result) {
-            console.log("i am here");
             if (err) return next({ message: err.message });
             res.status(200).json({
               status: 200,
