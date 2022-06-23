@@ -5,9 +5,11 @@ const sqlServices = require("../services/registration/sql_functions");
 
 exports.checkUserExists = (req, res, next) => {
   const phonenumber = req.body.phonenumber;
+  const email = req.body.email;
   sqlServices.findExistingUser(
     {
       phonenumber: phonenumber,
+      email: email,
     },
     function (err, result) {
       if (err) return next({ message: err.message });
