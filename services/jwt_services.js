@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
 
+
 module.exports = function (userID, callback) {
   const token = jwt.sign({ user_id: userID }, process.env.JWT_SECRET, {
     expiresIn: process.env.TOKEN_LIFE,
@@ -17,3 +18,4 @@ module.exports = function (userID, callback) {
     refresh_token: refreshToken,
   });
 };
+

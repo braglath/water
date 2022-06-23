@@ -3,7 +3,6 @@ const router = express.Router();
 
 const getUserFromSql = require("../middlewares/crud/get_user_details_sql");
 const controller = require("../controllers/user_crud_controller");
-const verifyJWT = require("../middlewares/jwt_verify_middleware");
 
 router.get("/", (req, res) => {
   res.json({
@@ -11,6 +10,9 @@ router.get("/", (req, res) => {
   });
 });
 
-router.route("/:id").get(getUserFromSql, controller.sendUser);
+router
+  .route("/:id")
+  .get(getUserFromSql, controller.sendUser)
+  .delete(controller.deleteUser);
 
 module.exports = router;

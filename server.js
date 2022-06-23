@@ -13,15 +13,16 @@ const errorHandler = require("./middlewares/error_handler");
 const userCRUDRoute = require("./routes/crud_user_route");
 const loginRoute = require("./routes/login_route");
 const loginWPwdRoute = require("./routes/login_w_password_route");
-const verifyJWT = require("./middlewares/jwt_verify_middleware");
+const jwtAuth = require("./middlewares/jwt_verify_middleware");
+const verifyJWT = require("./middlewares/auth/verify_jwt");
 
 require("./config/mysql_config"); //? this will automatically connect to the database
 
 app.use("/api/user/register", registerRoute);
 app.use("/api/user/login", loginRoute);
 app.use("/api/user/login-password", loginWPwdRoute);
-
 //? need token for below routes
+app.use(jwtAuth);
 app.use(verifyJWT);
 app.use("/api/user", userCRUDRoute);
 app.use(errorHandler);
@@ -29,5 +30,3 @@ app.use(errorHandler);
 app.listen(port, () =>
   console.log(`sever listening on http://localhost:${port}`)
 );
-
-//! trying pull request
