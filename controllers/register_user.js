@@ -109,16 +109,14 @@ exports.registerUser = function (req, res, next) {
               sqlServices.getUserDetails(paramsToSend, function (err, result) {
                 if (err) return next({ message: err.message });
 
-                res.status(200).json({
+                res.json({
                   status: 200,
-                  success: true,
-                  message: "registration successful",
                   data: {
                     token: {
                       access_token: result["access_token"],
                       refresh_token: result["refresh_token"],
                     },
-                    user_id: result["user_id"],
+                    result_id: result["result_id"],
                     type: result["type"],
                     name: result["name"],
                     email: result["email"],
@@ -135,6 +133,22 @@ exports.registerUser = function (req, res, next) {
                       state: result["state"],
                       zip_code: result["zip_code"],
                       country: result["country"],
+                    },
+                    request: {
+                      request_id: result["request_id"],
+                      provider_id: result["provider_id"],
+                      package: {
+                        package_id: result["package_id"],
+                        package_name: result["package_name"],
+                        total_month: result["total_months"],
+                        package_amount: result["package_amount"],
+                      },
+                      payment: {
+                        payment_type: result["payment_type"],
+                        payment_status: result["payment_status"],
+                      },
+                      provider_order_status: result["provider_order_status"],
+                      request_on: result["requested_on"],
                     },
                     date_created: result["date_created"],
                   },
