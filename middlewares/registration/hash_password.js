@@ -1,5 +1,5 @@
 const bcrypt = require("bcrypt");
-const fields = require("../validations/validate_registration_fields");
+const fields = require("../validations/validate_customer_registration_fields");
 
 module.exports = async function (req, res, next) {
   const password = req.body.password;

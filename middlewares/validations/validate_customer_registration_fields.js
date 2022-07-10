@@ -1,4 +1,4 @@
-const validator = require("../../helpers/validate_registration");
+const validator = require("../../helpers/validate_customer_registration");
 
 module.exports = function (req, res, next) {
   const validationRule = {
