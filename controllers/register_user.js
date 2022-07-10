@@ -109,16 +109,15 @@ exports.registerUser = function (req, res, next) {
               sqlServices.getUserDetails(paramsToSend, function (err, result) {
                 if (err) return next({ message: err.message });
 
-                res.status(200).json({
+                res.json({
                   status: 200,
-                  success: true,
-                  message: "registration successful",
+                  message: 'Customer registered successfully',
                   data: {
                     token: {
                       access_token: result["access_token"],
                       refresh_token: result["refresh_token"],
                     },
-                    user_id: result["user_id"],
+                    result_id: result["result_id"],
                     type: result["type"],
                     name: result["name"],
                     email: result["email"],

@@ -103,6 +103,7 @@ exports.insertDeviceToken = (params, callback) => {
 
 exports.insertGeoLocation = (params, callback) => {
   const userID = params["userID"];
+  const loginType = 1;
   const latitude = params["latitude"];
   const longitude = params["longitude"];
   const door_number = params["door_number"];
@@ -113,8 +114,8 @@ exports.insertGeoLocation = (params, callback) => {
   const country = params["country"];
 
   var geoTableQuery = `
-          INSERT INTO geo_location (user_id, latitude, longitude, door_number, street, city, state, zip_code, country)
-          VALUES ('${userID}','${latitude}','${longitude}','${door_number}','${street}','${city}','${state}','${zip_code}','${country}')
+          INSERT INTO geo_location (user_id,login_type, latitude, longitude, door_number, street, city, state, zip_code, country)
+          VALUES ('${userID}','${loginType}', '${latitude}','${longitude}','${door_number}','${street}','${city}','${state}','${zip_code}','${country}')
           `;
 
   mysql.query(geoTableQuery, function (err, result) {
