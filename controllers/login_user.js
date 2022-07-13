@@ -51,22 +51,6 @@ module.exports = function (req, res, next) {
                   zip_code: result["zip_code"],
                   country: result["country"],
                 },
-                request: {
-                  request_id: result["request_id"],
-                  provider_id: result["provider_id"],
-                  package: {
-                    package_id: result["package_id"],
-                    package_name: result["package_name"],
-                    total_month: result["total_months"],
-                    package_amount: result["package_amount"],
-                  },
-                  payment: {
-                    payment_type: result["payment_type"],
-                    payment_status: result["payment_status"],
-                  },
-                  provider_order_status: result["provider_order_status"],
-                  request_on: result["requested_on"],
-                },
                 date_created: result["date_created"],
               },
             });

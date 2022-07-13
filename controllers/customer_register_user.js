@@ -111,7 +111,7 @@ exports.registerUser = function (req, res, next) {
 
                 res.json({
                   status: 200,
-                  message: 'Customer registered successfully',
+                  message: "Customer registered successfully",
                   data: {
                     token: {
                       access_token: result["access_token"],
