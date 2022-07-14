@@ -46,6 +46,27 @@ exports.insertProviderShowDetails = (params, callback) => {
   });
 };
 
+exports.findIfPhoneNumberExists = (params, callback) => {
+  // const userID = params["user_id"];
+  const shop_contact_number = params["shop_contact_number"];
+
+  var sqlQuery = `
+    SELECT shop_contact_number FROM water.provider_shop_details
+    WHERE shop_contact_number = '${shop_contact_number}'
+  `;
+
+  mysql.query(sqlQuery, function (err, result) {
+    if (err) return callback({ message: err.message }, null);
+    //? else
+    console.log(`shop contact number ~ result length ~ ${result.length}`);
+    console.log(`shop contact number ~ result length ~ ${result.length}`);
+    if (result.length !== 0)
+      return callback({ message: "shop contact number already in use" }, null);
+    //? else
+    callback(null, "passed");
+  });
+};
+
 exports.sendProviderDetails = (params, callback) => {
   const userID = params["user_id"];
 

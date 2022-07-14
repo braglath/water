@@ -28,6 +28,7 @@ module.exports = function (req, res, next) {
             if (err) return next({ message: err.message });
             res.json({
               status: 200,
+              success: true,
               data: {
                 token: {
                   access_token: result["access_token"],

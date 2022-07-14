@@ -4,6 +4,7 @@ exports.sendUser = (req, res) => {
   const user = req.user;
   res.json({
     status: 200,
+    success: true,
     data: {
       token: {
         access_token: user["access_token"],
