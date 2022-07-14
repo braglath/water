@@ -3,7 +3,7 @@ const router = express.Router();
 
 const validation = require("../middlewares/validations/validate_customer_registration_fields");
 const hashPassword = require("../middlewares/registration/hash_password");
-const registrationController = require("../controllers/register_user");
+const registrationController = require("../controllers/customer_register_user");
 
 router.post(
   "/",
