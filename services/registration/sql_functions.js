@@ -58,7 +58,7 @@ exports.getUserID = (params, callback) => {
   var getUserIDQuery = `
     SELECT user_id
     FROM users
-    WHERE phonenumber = ${phonenumber}
+    WHERE phonenumber = '${phonenumber}'
     `;
 
   mysql.query(getUserIDQuery, function (err, result) {
@@ -125,6 +125,34 @@ exports.insertGeoLocation = (params, callback) => {
   });
 };
 
+exports.getCustomerRegisDetails = (params, callback) => {
+  const userID = params["userID"];
+
+  var userDetailsSqlQuery = `
+            SELECT u.user_id,token.access_token, token.refresh_token , u.name, u.email, u.phonenumber, u.profile_image, t.type,g.latitude, g.longitude, g.door_number, g.street, g.city, g.state, g.zip_code, g.country, u.date_created
+            FROM users u
+            JOIN user_type t
+	          ON u.user_type = t.user_type_id
+            JOIN tokens token
+	          ON u.user_id = token.user_id
+            JOIN geo_location g
+	          ON u.user_id = g.user_id
+            WHERE u.user_id = '${userID}'
+            `;
+
+  mysql.query(userDetailsSqlQuery, function (err, result) {
+    if (err) return callback({ message: "error" }, null);
+    if (result.length == 0) {
+      return callback({ message: "no user found" }, null);
+    }
+    const user = result[0];
+    console.log(
+      `sql functions ~ get customer regis details ~ user ~ ${user["type"]}`
+    );
+    return callback(null, user); //? sending the first result
+  });
+};
+
 exports.getUserDetails = (params, callback) => {
   const userID = params["userID"];
 
@@ -137,7 +165,7 @@ exports.getUserDetails = (params, callback) => {
 	          ON u.user_id = token.user_id
             JOIN geo_location g
 	          ON u.user_id = g.user_id
-            WHERE u.user_id = ${userID}
+            WHERE u.user_id = '${userID}'
             `;
 
   mysql.query(userDetailsSqlQuery, function (err, result) {
@@ -146,6 +174,43 @@ exports.getUserDetails = (params, callback) => {
       return callback({ message: "no user found" }, null);
     }
     const user = result[0];
-    return callback(null, user); //? sending the first result
+    console.log(`sql functions ~ get user details ~ user ~ ${user["type"]}`);
+    if (user["type"] === "customer") {
+      return callback(null, user); //? sending the first result
+    }
+    //? get provider details
+    var sqlQuery = `
+SELECT u.user_id,token.access_token, token.refresh_token , u.name, u.email, u.phonenumber, u.password, u.profile_image, t.type,g1.latitude, g1.longitude, g1.door_number, g1.street, g1.city, g1.state, g1.zip_code, g1.country, u.date_created, s.shop_name, s.shop_images, s.shop_contact_number, s.damaged_can_cost, g2.latitude as shop_latitude, g2.longitude as shop_longitude, g2.door_number as shop_door_number, g2.street as shop_street, g2.city as shop_city, g2.state as shop_state, g2.zip_code as shop_zip_code, g2.country as shop_country
+FROM users u
+
+JOIN user_type t
+	ON t.user_type_id = u.user_type
+    
+JOIN tokens token
+	ON u.user_id = token.user_id
+    
+JOIN (
+	SELECT * FROM geo_location
+  WHERE login_type = 1
+		) g1
+	ON g1.user_id = u.user_id
+    
+JOIN provider_shop_details s
+ON s.user_id = u.user_id
+    
+JOIN (
+	SELECT * FROM geo_location
+  WHERE login_type = 2
+  ) g2
+	ON g2.user_id = u.user_id
+  
+  WHERE u.user_id = '${userID}'`;
+
+    mysql.query(sqlQuery, function (err, result) {
+      if (err) return callback({ message: err.message }, null);
+      //? else
+      const user = result[0];
+      return callback(null, user);
+    });
   });
 };

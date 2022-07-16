@@ -11,7 +11,7 @@ router.post(
   /// check if there is already a user with that phonenumber
   userDetails.getUseDetails,
   userDetails.checkDeviceToken,
-  loginController
+  loginController,
 );
 
 module.exports = router;

@@ -10,9 +10,8 @@ router.get("/", (req, res) => {
   });
 });
 
-router
-  .route("/:id")
-  .get(getUserFromSql, controller.sendUser)
-  .delete(controller.deleteUser);
+// router.delete("/:id", controller.deleteUser);
+
+router.route("/:id").get(getUserFromSql, controller.sendUser);
 
 module.exports = router;
