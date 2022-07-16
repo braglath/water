@@ -153,6 +153,28 @@ exports.getCustomerRegisDetails = (params, callback) => {
   });
 };
 
+exports.updateDeviceToken = (params, callback) => {
+  const deviceToken = params["device_token"];
+  const userID = params["user_id"];
+
+  var sqlQuery = `
+  UPDATE device_token
+  SET device_token = '${deviceToken}'
+  WHERE (user_id = '${userID}') 
+  `;
+
+  console.log(`sql functions ~ device Token ~ ${deviceToken}`);
+  console.log(`sql functions ~ user id ~ ${userID}`);
+
+  mysql.query(sqlQuery, function (err, result) {
+    if (err) return callback({ message: err.message }, null);
+    // console.log(`sql functions ~ err ~ ${err.message}`);
+    // if (result.length == 0) return callback({ message: "no user found" }, null);
+    //? else
+    return callback(null, "passed");
+  });
+};
+
 exports.getUserDetails = (params, callback) => {
   const userID = params["userID"];
 

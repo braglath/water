@@ -32,6 +32,7 @@ exports.getHashedPwd = function (params, callback) {
 
   mysql.query(sqlQuery, function (err, result) {
     if (err) callback({ message: err.message }, null);
+    if (result.length == 0) return callback({ message: "no user found" }, null);
     const hashedPassword = result[0]["password"];
     return callback(null, { hashedPassword: hashedPassword });
   });
