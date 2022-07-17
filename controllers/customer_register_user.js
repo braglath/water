@@ -64,10 +64,10 @@ exports.registerUser = function (req, res, next) {
       if (err) return next({ message: err.message });
       //? else
       const userID = result;
-      console.log(userID);
+      // console.log(userID);
       jwt(userID, function (err, result) {
-        console.log(result["access_token"]);
-        console.log(result["refresh_token"]);
+        // console.log(result["access_token"]);
+        // console.log(result["refresh_token"]);
 
         const access_token = result["access_token"];
         const refresh_token = result["refresh_token"];
@@ -112,9 +112,9 @@ exports.registerUser = function (req, res, next) {
                 function (err, result) {
                   if (err) return next({ message: err.message }, null);
                   res.userDetails = result;
-                  console.log(
-                    `customer register user ~ res.userDetails ~ ${res.userDetails}`
-                  );
+                  // console.log(
+                  //   `customer register user ~ res.userDetails ~ ${res.userDetails}`
+                  // );
                   res.message = "registered successfully";
                   return sendCustomerDetails(res);
                 }

@@ -12,6 +12,13 @@ router.get("/", (req, res) => {
 
 // router.delete("/:id", controller.deleteUser);
 
-router.route("/:id").get(getUserFromSql, controller.sendUser);
+router
+  .route("/:id")
+  .get(getUserFromSql, controller.sendUser)
+  .put((req, res, next) => {
+    res.json({
+      message: "updating profile",
+    });
+  });
 
 module.exports = router;

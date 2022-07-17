@@ -8,7 +8,7 @@ exports.findExistingUser = (params, callback) => {
 
   mysql.query(isEmailMatchSqlQuery, function (err, result) {
     if (err) return callback({ message: err.message }, null);
-    console.log(result);
+    // console.log(result);
     if (result.length == 0) {
       //? user does not exists
       //? check with phonenumber
@@ -64,7 +64,7 @@ exports.getUserID = (params, callback) => {
   mysql.query(getUserIDQuery, function (err, result) {
     if (err) return callback({ message: "error registering user" }, null);
     //? else
-    console.log(result);
+    // console.log(result);
     var userID = result[0]["user_id"];
     return callback(null, userID);
   });
@@ -146,9 +146,9 @@ exports.getCustomerRegisDetails = (params, callback) => {
       return callback({ message: "no user found" }, null);
     }
     const user = result[0];
-    console.log(
-      `sql functions ~ get customer regis details ~ user ~ ${user["type"]}`
-    );
+    // console.log(
+    //   `sql functions ~ get customer regis details ~ user ~ ${user["type"]}`
+    // );
     return callback(null, user); //? sending the first result
   });
 };
@@ -163,8 +163,8 @@ exports.updateDeviceToken = (params, callback) => {
   WHERE (user_id = '${userID}') 
   `;
 
-  console.log(`sql functions ~ device Token ~ ${deviceToken}`);
-  console.log(`sql functions ~ user id ~ ${userID}`);
+  // console.log(`sql functions ~ device Token ~ ${deviceToken}`);
+  // console.log(`sql functions ~ user id ~ ${userID}`);
 
   mysql.query(sqlQuery, function (err, result) {
     if (err) return callback({ message: err.message }, null);
@@ -196,7 +196,7 @@ exports.getUserDetails = (params, callback) => {
       return callback({ message: "no user found" }, null);
     }
     const user = result[0];
-    console.log(`sql functions ~ get user details ~ user ~ ${user["type"]}`);
+    // console.log(`sql functions ~ get user details ~ user ~ ${user["type"]}`);
     if (user["type"] === "customer") {
       return callback(null, user); //? sending the first result
     }

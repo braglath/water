@@ -22,7 +22,7 @@ module.exports = function errorHandler(err, req, res, next) {
     return res.status(401).json({
       status: 401,
       success: false,
-      message: err.message,
+      message: "Valid Access Token is required",
     });
   if (err.message === "Forbidden")
     return res.status(403).json({

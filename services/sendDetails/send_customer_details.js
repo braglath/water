@@ -2,7 +2,7 @@ module.exports = function (res) {
   const customerDetails = res.userDetails;
   const message = res.message;
 
-  console.log(`send customer details ~ customerDetails ~ ${customerDetails}`);
+  // console.log(`send customer details ~ customerDetails ~ ${customerDetails}`);
 
   return res.json({
     status: 200,
