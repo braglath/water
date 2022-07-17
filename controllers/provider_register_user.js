@@ -1,4 +1,5 @@
 const sqlFunctions = require("../services/registration/provider_register_sql_functions");
+const sendProviderDetails = require("../services/sendDetails/send_provider_details");
 
 exports.registerProvider = (req, res, next) => {
   const {
@@ -63,54 +64,9 @@ exports.registerProvider = (req, res, next) => {
               function (err, result) {
                 if (err) return next({ message: err.message });
                 //? else
-                res.json({
-                  status: 200,
-                  success: true,
-                  message: "Provider registered successfully",
-                  data: {
-                    token: {
-                      access_token: result["access_token"],
-                      refresh_token: result["refresh_token"],
-                    },
-                    result_id: result["result_id"],
-                    type: result["type"],
-                    name: result["name"],
-                    email: result["email"],
-                    phonenumber: result["phonenumber"],
-                    profile_image: result["profile_image"],
-                    geo_location: {
-                      latitude: result["latitude"],
-                      longitude: result["longitude"],
-                    },
-                    address: {
-                      door_number: result["door_number"],
-                      street: result["street"],
-                      city: result["city"],
-                      state: result["state"],
-                      zip_code: result["zip_code"],
-                      country: result["country"],
-                    },
-                    shop_details: {
-                      shop_name: result["shop_name"],
-                      shop_images: result["shop_images"],
-                      shop_contact_number: result["shop_contact_number"],
-                      damaged_can_cost: result["damaged_can_cost"],
-                      shop_geo_location: {
-                        latitude: result["shop_latitude"],
-                        longitude: result["shop_longitude"],
-                      },
-                      shop_address: {
-                        shop_door_number: result["shop_door_number"],
-                        shop_street: result["shop_street"],
-                        shop_city: result["shop_city"],
-                        shop_state: result["shop_state"],
-                        shop_zip_code: result["shop_zip_code"],
-                        shop_country: result["shop_country"],
-                      },
-                    },
-                    date_created: result["date_created"],
-                  },
-                });
+                res.userDetails = result;
+                res.message = "Provider registered successfully";
+                return sendProviderDetails(res);
               }
             );
           }

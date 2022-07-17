@@ -7,9 +7,10 @@ const con = mysql.createConnection({
   database: "water",
 });
 
-con.connect(function (err) {
-  if (err) throw err;
-  console.log("sql database connected!");
-});
+module.exports = con;
+// con.connect(function (err) {
+//   if (err) throw err;
+//   console.log("sql database connected!");
+// });
 
 module.exports = con;

@@ -10,9 +10,15 @@ router.get("/", (req, res) => {
   });
 });
 
+// router.delete("/:id", controller.deleteUser);
+
 router
   .route("/:id")
   .get(getUserFromSql, controller.sendUser)
-  .delete(controller.deleteUser);
+  .put((req, res, next) => {
+    res.json({
+      message: "updating profile",
+    });
+  });
 
 module.exports = router;

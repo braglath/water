@@ -15,6 +15,7 @@ router.post(
   validation,
   loginMiddleware.comparePasswords,
   loginMiddleware.generateToken,
+  loginMiddleware.updateDeviceToken,
   loginMiddleware.getUserDetails
 );
 

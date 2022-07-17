@@ -38,7 +38,6 @@ exports.checkDeviceToken = (req, res, next) => {
 
   mysql.query(sqlQuery, function (err, result) {
     if (err) return next({ message: err.message });
-    console.log(result[0]);
     if (result.length == 0) {
       return next({ message: "no device token found" });
     } else {

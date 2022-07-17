@@ -1,0 +1,519 @@
+[17-07-2022 20:56:51 17-07-2022 20:56:51] : [31merror[39m - [31mThis is an error log[39m
+[17-07-2022 20:57:42 17-07-2022 20:57:42] : [31merror[39m - [31mThis is an error log[39m
+[17-07-2022 21:01:18 17-07-2022 21:01:18] : [35mhttp[39m - [35m{[39m
+[35m      header: [object Object][39m
+[35m   }[39m
+[17-07-2022 21:05:48 17-07-2022 21:05:48] : [35mhttp[39m - [35m{[39m
+[35m      header: function header(name) {[39m
+[35m  if (!name) {[39m
+[35m    throw new TypeError('name argument is required to req.get');[39m
+[35m  }[39m
+
+[35m  if (typeof name !== 'string') {[39m
+[35m    throw new TypeError('name must be a string to req.get');[39m
+[35m  }[39m
+
+[35m  var lc = name.toLowerCase();[39m
+
+[35m  switch (lc) {[39m
+[35m    case 'referer':[39m
+[35m    case 'referrer':[39m
+[35m      return this.headers.referrer[39m
+[35m        || this.headers.referer;[39m
+[35m    default:[39m
+[35m      return this.headers[lc];[39m
+[35m  }[39m
+[35m}[39m
+[35m   }[39m
+[17-07-2022 21:14:09 17-07-2022 21:14:09] : [35mhttp[39m - [35m{[39m
+[35m      header: [object Object],[39m
+[35m      url: /,[39m
+[35m      body: [object Object][39m
+[35m   }[39m
+[17-07-2022 21:17:43 17-07-2022 21:17:43] : [35mhttp[39m - [35mfunction logger (req, res, next) {[39m
+[35m    // request data[39m
+[35m    req._startAt = undefined[39m
+[35m    req._startTime = undefined[39m
+[35m    req._remoteAddress = getip(req)[39m
+
+[35m    // response data[39m
+[35m    res._startAt = undefined[39m
+[35m    res._startTime = undefined[39m
+
+[35m    // record request start[39m
+[35m    recordStartTime.call(req)[39m
+
+[35m    function logRequest () {[39m
+[35m      if (skip !== false && skip(req, res)) {[39m
+[35m        debug('skip request')[39m
+[35m        return[39m
+[35m      }[39m
+
+[35m      var line = formatLine(morgan, req, res)[39m
+
+[35m      if (line == null) {[39m
+[35m        debug('skip line')[39m
+[35m        return[39m
+[35m      }[39m
+
+[35m      debug('log request')[39m
+[35m      stream.write(line + '\n')[39m
+[35m    };[39m
+
+[35m    if (immediate) {[39m
+[35m      // immediate log[39m
+[35m      logRequest()[39m
+[35m    } else {[39m
+[35m      // record response start[39m
+[35m      onHeaders(res, recordStartTime)[39m
+
+[35m      // log when response finished[39m
+[35m      onFinished(res, logRequest)[39m
+[35m    }[39m
+
+[35m    next()[39m
+[35m  }[39m
+[17-07-2022 21:20:57 17-07-2022 21:20:57] : [35mhttp[39m - [35m{[39m
+[35m      header: [object Object],[39m
+[35m      url: /,[39m
+[35m      body: [object Object][39m
+[35m   }[39m
+[17-07-2022 21:24:43 17-07-2022 21:24:43] : [35mhttp[39m - [35mundefined[39m
+[17-07-2022 21:26:01 17-07-2022 21:26:01] : [35mhttp[39m - [35mundefined[39m
+[17-07-2022 21:28:02 17-07-2022 21:28:02] : [35mhttp[39m - [35mundefined[39m
+[17-07-2022 21:28:52 17-07-2022 21:28:52] : [35mhttp[39m - [35mundefined[39m
+[17-07-2022 21:33:24 17-07-2022 21:33:24] : [35mhttp[39m - [35mundefined[39m
+[17-07-2022 21:34:40 17-07-2022 21:34:40] : [35mhttp[39m - [35mundefined[39m
+[17-07-2022 21:37:06 17-07-2022 21:37:06] : [35mhttp[39m - [35mundefined[39m
+[17-07-2022 22:21:06 17-07-2022 22:21:06] : [35mhttp[39m - [35m[39m
+[35m[96mRequest: [93mPOST [97m/api/login headers[content-type=application/json;user-agent=PostmanRuntime/7.29.0;accept=*/*;cache-control=no-cache;postman-token=b4aeffc3-9878-41cf-9d3d-f001d5c4b2e9;host=localhost:5000;accept-encoding=gzip, deflate, br;connection=keep-alive;content-length=91] [90mat [37mSun Jul 17 2022 22:21:06 GMT+0530, [90mIP: [37m::1[0m, [90mUser Agent: PostmanRuntime/7.29.0[0m[39m
+[35m[39m
+[17-07-2022 22:21:06 17-07-2022 22:21:06] : [35mhttp[39m - [35m[95mRequest Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"phonenumber": "+918939243462",[0m[39m
+[35m[97m	"device_token": "this will be my device token"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[17-07-2022 22:21:06 17-07-2022 22:21:06] : [35mhttp[39m - [35m[95mResponse Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"status": 400,[0m[39m
+[35m[97m	"success": false,[0m[39m
+[35m[97m	"message": "password required"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[17-07-2022 22:21:06 17-07-2022 22:21:06] : [35mhttp[39m - [35m[96mResponse: [33m400 [37m67.394 ms [39m
+[35m[39m
+[17-07-2022 23:23:01 17-07-2022 23:23:01] : [35mhttp[39m - [35m[39m
+[35m[96mRequest: [93mPOST [97m/api/login headers[content-type=application/json;user-agent=PostmanRuntime/7.29.0;accept=*/*;cache-control=no-cache;postman-token=6dac4968-d232-496d-ac9d-57e0e0bb0b34;host=localhost:5000;accept-encoding=gzip, deflate, br;connection=keep-alive;content-length=91] [90mat [37mSun Jul 17 2022 23:23:01 GMT+0530, [90mIP: [37m::1[0m, [90mUser Agent: PostmanRuntime/7.29.0[0m[39m
+[35m[39m
+[17-07-2022 23:23:01 17-07-2022 23:23:01] : [35mhttp[39m - [35m[95mRequest Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"phonenumber": "+918939243462",[0m[39m
+[35m[97m	"device_token": "this will be my device token"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[17-07-2022 23:23:01 17-07-2022 23:23:01] : [35mhttp[39m - [35m[95mResponse Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"status": 400,[0m[39m
+[35m[97m	"success": false,[0m[39m
+[35m[97m	"message": "password required"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[17-07-2022 23:23:01 17-07-2022 23:23:01] : [35mhttp[39m - [35m[96mResponse: [33m400 [37m187.256 ms [39m
+[35m[39m
+[17-07-2022 23:44:26 17-07-2022 23:44:26] : [35mhttp[39m - [35m[39m
+[35m[96mRequest: [93mPOST [97m/api/login headers[host=127.0.0.1:57787;accept-encoding=gzip, deflate;content-type=application/json;content-length=77;connection=close] [90mat [37mSun Jul 17 2022 23:44:26 GMT+0530, [90mIP: [37m::ffff:127.0.0.1[0m, [90mUser Agent: -[0m[39m
+[35m[39m
+[17-07-2022 23:44:26 17-07-2022 23:44:26] : [35mhttp[39m - [35m[95mRequest Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"phonenumber": "+918939243462",[0m[39m
+[35m[97m	"device_token": "this will be my device token"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[17-07-2022 23:44:26 17-07-2022 23:44:26] : [35mhttp[39m - [35m[95mResponse Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"status": 400,[0m[39m
+[35m[97m	"success": false,[0m[39m
+[35m[97m	"message": "password required"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[17-07-2022 23:44:26 17-07-2022 23:44:26] : [35mhttp[39m - [35m[96mResponse: [33m400 [37m283.631 ms [39m
+[35m[39m
+[17-07-2022 23:44:59 17-07-2022 23:44:59] : [35mhttp[39m - [35m[39m
+[35m[96mRequest: [93mPOST [97m/api/login headers[host=127.0.0.1:57802;accept-encoding=gzip, deflate;content-type=application/json;content-length=77;connection=close] [90mat [37mSun Jul 17 2022 23:44:59 GMT+0530, [90mIP: [37m::ffff:127.0.0.1[0m, [90mUser Agent: -[0m[39m
+[35m[39m
+[17-07-2022 23:44:59 17-07-2022 23:44:59] : [35mhttp[39m - [35m[95mRequest Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"phonenumber": "+918939243462",[0m[39m
+[35m[97m	"device_token": "this will be my device token"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[17-07-2022 23:44:59 17-07-2022 23:44:59] : [35mhttp[39m - [35m[95mResponse Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"status": 400,[0m[39m
+[35m[97m	"success": false,[0m[39m
+[35m[97m	"message": "password required"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[17-07-2022 23:44:59 17-07-2022 23:44:59] : [35mhttp[39m - [35m[96mResponse: [33m400 [37m270.708 ms [39m
+[35m[39m
+[17-07-2022 23:45:07 17-07-2022 23:45:07] : [35mhttp[39m - [35m[39m
+[35m[96mRequest: [93mPOST [97m/api/login headers[host=127.0.0.1:57805;accept-encoding=gzip, deflate;content-type=application/json;content-length=77;connection=close] [90mat [37mSun Jul 17 2022 23:45:07 GMT+0530, [90mIP: [37m::ffff:127.0.0.1[0m, [90mUser Agent: -[0m[39m
+[35m[39m
+[17-07-2022 23:45:07 17-07-2022 23:45:07] : [35mhttp[39m - [35m[95mRequest Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"phonenumber": "+918939243462",[0m[39m
+[35m[97m	"device_token": "this will be my device token"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[17-07-2022 23:45:07 17-07-2022 23:45:07] : [35mhttp[39m - [35m[95mResponse Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"status": 400,[0m[39m
+[35m[97m	"success": false,[0m[39m
+[35m[97m	"message": "password required"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[17-07-2022 23:45:07 17-07-2022 23:45:07] : [35mhttp[39m - [35m[96mResponse: [33m400 [37m292.916 ms [39m
+[35m[39m
+[17-07-2022 23:45:18 17-07-2022 23:45:18] : [35mhttp[39m - [35m[39m
+[35m[96mRequest: [93mPOST [97m/api/login headers[host=127.0.0.1:57814;accept-encoding=gzip, deflate;content-type=application/json;content-length=77;connection=close] [90mat [37mSun Jul 17 2022 23:45:18 GMT+0530, [90mIP: [37m::ffff:127.0.0.1[0m, [90mUser Agent: -[0m[39m
+[35m[39m
+[17-07-2022 23:45:18 17-07-2022 23:45:18] : [35mhttp[39m - [35m[95mRequest Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"phonenumber": "+918939243462",[0m[39m
+[35m[97m	"device_token": "this will be my device token"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[17-07-2022 23:45:18 17-07-2022 23:45:18] : [35mhttp[39m - [35m[95mResponse Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"status": 400,[0m[39m
+[35m[97m	"success": false,[0m[39m
+[35m[97m	"message": "password required"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[17-07-2022 23:45:18 17-07-2022 23:45:18] : [35mhttp[39m - [35m[96mResponse: [33m400 [37m304.053 ms [39m
+[35m[39m
+[17-07-2022 23:46:31 17-07-2022 23:46:31] : [35mhttp[39m - [35m[39m
+[35m[96mRequest: [93mPOST [97m/api/login headers[host=127.0.0.1:62278;accept-encoding=gzip, deflate;content-type=application/json;content-length=77;connection=close] [90mat [37mSun Jul 17 2022 23:46:31 GMT+0530, [90mIP: [37m::ffff:127.0.0.1[0m, [90mUser Agent: -[0m[39m
+[35m[39m
+[17-07-2022 23:46:32 17-07-2022 23:46:32] : [35mhttp[39m - [35m[95mRequest Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"phonenumber": "+918939243462",[0m[39m
+[35m[97m	"device_token": "this will be my device token"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[17-07-2022 23:46:32 17-07-2022 23:46:32] : [35mhttp[39m - [35m[95mResponse Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"status": 400,[0m[39m
+[35m[97m	"success": false,[0m[39m
+[35m[97m	"message": "password required"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[17-07-2022 23:46:32 17-07-2022 23:46:32] : [35mhttp[39m - [35m[96mResponse: [33m400 [37m238.559 ms [39m
+[35m[39m
+[17-07-2022 23:49:28 17-07-2022 23:49:28] : [35mhttp[39m - [35m[39m
+[35m[96mRequest: [93mPOST [97m/api/login headers[host=127.0.0.1:62288;accept-encoding=gzip, deflate;content-type=application/json;content-length=77;connection=close] [90mat [37mSun Jul 17 2022 23:49:28 GMT+0530, [90mIP: [37m::ffff:127.0.0.1[0m, [90mUser Agent: -[0m[39m
+[35m[39m
+[17-07-2022 23:49:28 17-07-2022 23:49:28] : [35mhttp[39m - [35m[95mRequest Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"phonenumber": "+918939243462",[0m[39m
+[35m[97m	"device_token": "this will be my device token"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[17-07-2022 23:49:28 17-07-2022 23:49:28] : [35mhttp[39m - [35m[95mResponse Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"status": 400,[0m[39m
+[35m[97m	"success": false,[0m[39m
+[35m[97m	"message": "password required"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[17-07-2022 23:49:28 17-07-2022 23:49:28] : [35mhttp[39m - [35m[96mResponse: [33m400 [37m46.983 ms [39m
+[35m[39m
+[17-07-2022 23:49:44 17-07-2022 23:49:44] : [35mhttp[39m - [35m[39m
+[35m[96mRequest: [93mPOST [97m/api/login headers[host=127.0.0.1:62293;accept-encoding=gzip, deflate;content-type=application/json;content-length=77;connection=close] [90mat [37mSun Jul 17 2022 23:49:44 GMT+0530, [90mIP: [37m::ffff:127.0.0.1[0m, [90mUser Agent: -[0m[39m
+[35m[39m
+[17-07-2022 23:49:44 17-07-2022 23:49:44] : [35mhttp[39m - [35m[95mRequest Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"phonenumber": "+918939243462",[0m[39m
+[35m[97m	"device_token": "this will be my device token"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[17-07-2022 23:49:44 17-07-2022 23:49:44] : [35mhttp[39m - [35m[95mResponse Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"status": 400,[0m[39m
+[35m[97m	"success": false,[0m[39m
+[35m[97m	"message": "password required"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[17-07-2022 23:49:44 17-07-2022 23:49:44] : [35mhttp[39m - [35m[96mResponse: [33m400 [37m60.670 ms [39m
+[35m[39m
+[17-07-2022 23:50:29 17-07-2022 23:50:29] : [35mhttp[39m - [35m[39m
+[35m[96mRequest: [93mPOST [97m/api/login headers[host=127.0.0.1:62303;accept-encoding=gzip, deflate;content-type=application/json;content-length=77;connection=close] [90mat [37mSun Jul 17 2022 23:50:29 GMT+0530, [90mIP: [37m::ffff:127.0.0.1[0m, [90mUser Agent: -[0m[39m
+[35m[39m
+[17-07-2022 23:50:29 17-07-2022 23:50:29] : [35mhttp[39m - [35m[95mRequest Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"phonenumber": "+918939243462",[0m[39m
+[35m[97m	"device_token": "this will be my device token"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[17-07-2022 23:50:29 17-07-2022 23:50:29] : [35mhttp[39m - [35m[95mResponse Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"status": 400,[0m[39m
+[35m[97m	"success": false,[0m[39m
+[35m[97m	"message": "password required"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[17-07-2022 23:50:29 17-07-2022 23:50:29] : [35mhttp[39m - [35m[96mResponse: [33m400 [37m71.959 ms [39m
+[35m[39m
+[17-07-2022 23:51:21 17-07-2022 23:51:21] : [35mhttp[39m - [35m[39m
+[35m[96mRequest: [93mPOST [97m/api/login headers[host=127.0.0.1:62337;accept-encoding=gzip, deflate;content-type=application/json;content-length=77;connection=close] [90mat [37mSun Jul 17 2022 23:51:21 GMT+0530, [90mIP: [37m::ffff:127.0.0.1[0m, [90mUser Agent: -[0m[39m
+[35m[39m
+[17-07-2022 23:51:21 17-07-2022 23:51:21] : [35mhttp[39m - [35m[95mRequest Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"phonenumber": "+918939243462",[0m[39m
+[35m[97m	"device_token": "this will be my device token"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[17-07-2022 23:51:21 17-07-2022 23:51:21] : [35mhttp[39m - [35m[95mResponse Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"status": 400,[0m[39m
+[35m[97m	"success": false,[0m[39m
+[35m[97m	"message": "password required"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[17-07-2022 23:51:21 17-07-2022 23:51:21] : [35mhttp[39m - [35m[96mResponse: [33m400 [37m193.395 ms [39m
+[35m[39m
+[17-07-2022 23:51:43 17-07-2022 23:51:43] : [35mhttp[39m - [35m[39m
+[35m[96mRequest: [93mPOST [97m/api/login headers[host=127.0.0.1:62342;accept-encoding=gzip, deflate;content-type=application/json;content-length=77;connection=close] [90mat [37mSun Jul 17 2022 23:51:43 GMT+0530, [90mIP: [37m::ffff:127.0.0.1[0m, [90mUser Agent: -[0m[39m
+[35m[39m
+[17-07-2022 23:51:43 17-07-2022 23:51:43] : [35mhttp[39m - [35m[95mRequest Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"phonenumber": "+918939243462",[0m[39m
+[35m[97m	"device_token": "this will be my device token"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[17-07-2022 23:51:43 17-07-2022 23:51:43] : [35mhttp[39m - [35m[95mResponse Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"status": 400,[0m[39m
+[35m[97m	"success": false,[0m[39m
+[35m[97m	"message": "password required"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[17-07-2022 23:51:43 17-07-2022 23:51:43] : [35mhttp[39m - [35m[96mResponse: [33m400 [37m85.667 ms [39m
+[35m[39m
+[17-07-2022 23:52:01 17-07-2022 23:52:01] : [35mhttp[39m - [35m[39m
+[35m[96mRequest: [93mPOST [97m/api/login headers[content-type=application/json;user-agent=PostmanRuntime/7.29.0;accept=*/*;cache-control=no-cache;postman-token=f8141cbd-a746-44de-a04a-e50e25fd635a;host=localhost:5000;accept-encoding=gzip, deflate, br;connection=keep-alive;content-length=91] [90mat [37mSun Jul 17 2022 23:52:01 GMT+0530, [90mIP: [37m::1[0m, [90mUser Agent: PostmanRuntime/7.29.0[0m[39m
+[35m[39m
+[17-07-2022 23:52:01 17-07-2022 23:52:01] : [35mhttp[39m - [35m[95mRequest Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"phonenumber": "+918939243462",[0m[39m
+[35m[97m	"device_token": "this will be my device token"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[17-07-2022 23:52:01 17-07-2022 23:52:01] : [35mhttp[39m - [35m[95mResponse Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"status": 400,[0m[39m
+[35m[97m	"success": false,[0m[39m
+[35m[97m	"message": "password required"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[17-07-2022 23:52:01 17-07-2022 23:52:01] : [35mhttp[39m - [35m[96mResponse: [33m400 [37m30.282 ms [39m
+[35m[39m
+[17-07-2022 23:53:48 17-07-2022 23:53:48] : [35mhttp[39m - [35m[39m
+[35m[96mRequest: [93mPOST [97m/api/login headers[host=127.0.0.1:52273;accept-encoding=gzip, deflate;content-type=application/json;content-length=77;connection=close] [90mat [37mSun Jul 17 2022 23:53:48 GMT+0530, [90mIP: [37m::ffff:127.0.0.1[0m, [90mUser Agent: -[0m[39m
+[35m[39m
+[17-07-2022 23:53:48 17-07-2022 23:53:48] : [35mhttp[39m - [35m[95mRequest Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"phonenumber": "+918939243462",[0m[39m
+[35m[97m	"device_token": "this will be my device token"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[17-07-2022 23:53:48 17-07-2022 23:53:48] : [35mhttp[39m - [35m[95mResponse Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"status": 400,[0m[39m
+[35m[97m	"success": false,[0m[39m
+[35m[97m	"message": "password required"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[17-07-2022 23:53:48 17-07-2022 23:53:48] : [35mhttp[39m - [35m[96mResponse: [33m400 [37m160.424 ms [39m
+[35m[39m
+[17-07-2022 23:54:19 17-07-2022 23:54:19] : [35mhttp[39m - [35m[39m
+[35m[96mRequest: [93mPOST [97m/api/login headers[host=127.0.0.1:52278;accept-encoding=gzip, deflate;content-type=application/json;content-length=77;connection=close] [90mat [37mSun Jul 17 2022 23:54:19 GMT+0530, [90mIP: [37m::ffff:127.0.0.1[0m, [90mUser Agent: -[0m[39m
+[35m[39m
+[17-07-2022 23:54:19 17-07-2022 23:54:19] : [35mhttp[39m - [35m[95mRequest Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"phonenumber": "+918939243462",[0m[39m
+[35m[97m	"device_token": "this will be my device token"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[17-07-2022 23:54:19 17-07-2022 23:54:19] : [35mhttp[39m - [35m[95mResponse Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"status": 400,[0m[39m
+[35m[97m	"success": false,[0m[39m
+[35m[97m	"message": "password required"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[17-07-2022 23:54:19 17-07-2022 23:54:19] : [35mhttp[39m - [35m[96mResponse: [33m400 [37m183.185 ms [39m
+[35m[39m
+[17-07-2022 23:54:36 17-07-2022 23:54:36] : [35mhttp[39m - [35m[39m
+[35m[96mRequest: [93mPOST [97m/api/login headers[host=127.0.0.1:52283;accept-encoding=gzip, deflate;content-type=application/json;content-length=77;connection=close] [90mat [37mSun Jul 17 2022 23:54:36 GMT+0530, [90mIP: [37m::ffff:127.0.0.1[0m, [90mUser Agent: -[0m[39m
+[35m[39m
+[17-07-2022 23:54:37 17-07-2022 23:54:37] : [35mhttp[39m - [35m[95mRequest Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"phonenumber": "+918939243462",[0m[39m
+[35m[97m	"device_token": "this will be my device token"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[17-07-2022 23:54:37 17-07-2022 23:54:37] : [35mhttp[39m - [35m[95mResponse Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"status": 400,[0m[39m
+[35m[97m	"success": false,[0m[39m
+[35m[97m	"message": "password required"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[17-07-2022 23:54:37 17-07-2022 23:54:37] : [35mhttp[39m - [35m[96mResponse: [33m400 [37m232.755 ms [39m
+[35m[39m
+[17-07-2022 23:54:46 17-07-2022 23:54:46] : [35mhttp[39m - [35m[39m
+[35m[96mRequest: [93mPOST [97m/api/login headers[host=127.0.0.1:52288;accept-encoding=gzip, deflate;content-type=application/json;content-length=77;connection=close] [90mat [37mSun Jul 17 2022 23:54:46 GMT+0530, [90mIP: [37m::ffff:127.0.0.1[0m, [90mUser Agent: -[0m[39m
+[35m[39m
+[17-07-2022 23:54:46 17-07-2022 23:54:46] : [35mhttp[39m - [35m[95mRequest Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"phonenumber": "+918939243462",[0m[39m
+[35m[97m	"device_token": "this will be my device token"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[17-07-2022 23:54:46 17-07-2022 23:54:46] : [35mhttp[39m - [35m[95mResponse Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"status": 400,[0m[39m
+[35m[97m	"success": false,[0m[39m
+[35m[97m	"message": "password required"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[17-07-2022 23:54:46 17-07-2022 23:54:46] : [35mhttp[39m - [35m[96mResponse: [33m400 [37m111.046 ms [39m
+[35m[39m
+[17-07-2022 23:54:50 17-07-2022 23:54:50] : [35mhttp[39m - [35m[39m
+[35m[96mRequest: [93mPOST [97m/api/login headers[host=127.0.0.1:52291;accept-encoding=gzip, deflate;content-type=application/json;content-length=77;connection=close] [90mat [37mSun Jul 17 2022 23:54:50 GMT+0530, [90mIP: [37m::ffff:127.0.0.1[0m, [90mUser Agent: -[0m[39m
+[35m[39m
+[17-07-2022 23:54:50 17-07-2022 23:54:50] : [35mhttp[39m - [35m[95mRequest Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"phonenumber": "+918939243462",[0m[39m
+[35m[97m	"device_token": "this will be my device token"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[17-07-2022 23:54:50 17-07-2022 23:54:50] : [35mhttp[39m - [35m[95mResponse Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"status": 400,[0m[39m
+[35m[97m	"success": false,[0m[39m
+[35m[97m	"message": "password required"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[17-07-2022 23:54:50 17-07-2022 23:54:50] : [35mhttp[39m - [35m[96mResponse: [33m400 [37m78.306 ms [39m
+[35m[39m
+[17-07-2022 23:55:13 17-07-2022 23:55:13] : [35mhttp[39m - [35m[39m
+[35m[96mRequest: [93mPOST [97m/api/login headers[host=127.0.0.1:52298;accept-encoding=gzip, deflate;content-type=application/json;content-length=77;connection=close] [90mat [37mSun Jul 17 2022 23:55:13 GMT+0530, [90mIP: [37m::ffff:127.0.0.1[0m, [90mUser Agent: -[0m[39m
+[35m[39m
+[17-07-2022 23:55:13 17-07-2022 23:55:13] : [35mhttp[39m - [35m[95mRequest Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"phonenumber": "+918939243462",[0m[39m
+[35m[97m	"device_token": "this will be my device token"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[17-07-2022 23:55:13 17-07-2022 23:55:13] : [35mhttp[39m - [35m[95mResponse Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"status": 400,[0m[39m
+[35m[97m	"success": false,[0m[39m
+[35m[97m	"message": "password required"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[17-07-2022 23:55:13 17-07-2022 23:55:13] : [35mhttp[39m - [35m[96mResponse: [33m400 [37m74.278 ms [39m
+[35m[39m
+[17-07-2022 23:56:20 17-07-2022 23:56:20] : [35mhttp[39m - [35m[39m
+[35m[96mRequest: [93mPOST [97m/api/login headers[host=127.0.0.1:52314;accept-encoding=gzip, deflate;content-type=application/json;content-length=77;connection=close] [90mat [37mSun Jul 17 2022 23:56:20 GMT+0530, [90mIP: [37m::ffff:127.0.0.1[0m, [90mUser Agent: -[0m[39m
+[35m[39m
+[17-07-2022 23:56:20 17-07-2022 23:56:20] : [35mhttp[39m - [35m[95mRequest Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"phonenumber": "+918939243462",[0m[39m
+[35m[97m	"device_token": "this will be my device token"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[17-07-2022 23:56:20 17-07-2022 23:56:20] : [35mhttp[39m - [35m[95mResponse Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"status": 400,[0m[39m
+[35m[97m	"success": false,[0m[39m
+[35m[97m	"message": "password required"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[17-07-2022 23:56:20 17-07-2022 23:56:20] : [35mhttp[39m - [35m[96mResponse: [33m400 [37m101.987 ms [39m
+[35m[39m
+[17-07-2022 23:56:31 17-07-2022 23:56:31] : [35mhttp[39m - [35m[39m
+[35m[96mRequest: [93mPOST [97m/api/login headers[host=127.0.0.1:52319;accept-encoding=gzip, deflate;content-type=application/json;content-length=77;connection=close] [90mat [37mSun Jul 17 2022 23:56:31 GMT+0530, [90mIP: [37m::ffff:127.0.0.1[0m, [90mUser Agent: -[0m[39m
+[35m[39m
+[17-07-2022 23:56:31 17-07-2022 23:56:31] : [35mhttp[39m - [35m[95mRequest Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"phonenumber": "+918939243462",[0m[39m
+[35m[97m	"device_token": "this will be my device token"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[17-07-2022 23:56:31 17-07-2022 23:56:31] : [35mhttp[39m - [35m[95mResponse Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"status": 400,[0m[39m
+[35m[97m	"success": false,[0m[39m
+[35m[97m	"message": "password required"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[17-07-2022 23:56:31 17-07-2022 23:56:31] : [35mhttp[39m - [35m[96mResponse: [33m400 [37m164.562 ms [39m
+[35m[39m
+[17-07-2022 23:56:50 17-07-2022 23:56:50] : [35mhttp[39m - [35m[39m
+[35m[96mRequest: [93mPOST [97m/api/login headers[host=127.0.0.1:52326;accept-encoding=gzip, deflate;content-type=application/json;content-length=77;connection=close] [90mat [37mSun Jul 17 2022 23:56:50 GMT+0530, [90mIP: [37m::ffff:127.0.0.1[0m, [90mUser Agent: -[0m[39m
+[35m[39m
+[17-07-2022 23:56:50 17-07-2022 23:56:50] : [35mhttp[39m - [35m[95mRequest Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"phonenumber": "+918939243462",[0m[39m
+[35m[97m	"device_token": "this will be my device token"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[17-07-2022 23:56:50 17-07-2022 23:56:50] : [35mhttp[39m - [35m[95mResponse Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"status": 400,[0m[39m
+[35m[97m	"success": false,[0m[39m
+[35m[97m	"message": "password required"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[17-07-2022 23:56:50 17-07-2022 23:56:50] : [35mhttp[39m - [35m[96mResponse: [33m400 [37m118.779 ms [39m
+[35m[39m
+[17-07-2022 23:57:05 17-07-2022 23:57:05] : [35mhttp[39m - [35m[39m
+[35m[96mRequest: [93mPOST [97m/api/login headers[host=127.0.0.1:52331;accept-encoding=gzip, deflate;content-type=application/json;content-length=77;connection=close] [90mat [37mSun Jul 17 2022 23:57:05 GMT+0530, [90mIP: [37m::ffff:127.0.0.1[0m, [90mUser Agent: -[0m[39m
+[35m[39m
+[17-07-2022 23:57:05 17-07-2022 23:57:05] : [35mhttp[39m - [35m[95mRequest Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"phonenumber": "+918939243462",[0m[39m
+[35m[97m	"device_token": "this will be my device token"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[17-07-2022 23:57:05 17-07-2022 23:57:05] : [35mhttp[39m - [35m[95mResponse Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"status": 400,[0m[39m
+[35m[97m	"success": false,[0m[39m
+[35m[97m	"message": "password required"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[17-07-2022 23:57:05 17-07-2022 23:57:05] : [35mhttp[39m - [35m[96mResponse: [33m400 [37m228.623 ms [39m
+[35m[39m
+[17-07-2022 23:57:15 17-07-2022 23:57:15] : [35mhttp[39m - [35m[39m
+[35m[96mRequest: [93mPOST [97m/api/login headers[host=127.0.0.1:52336;accept-encoding=gzip, deflate;content-type=application/json;content-length=77;connection=close] [90mat [37mSun Jul 17 2022 23:57:15 GMT+0530, [90mIP: [37m::ffff:127.0.0.1[0m, [90mUser Agent: -[0m[39m
+[35m[39m
+[17-07-2022 23:57:15 17-07-2022 23:57:15] : [35mhttp[39m - [35m[95mRequest Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"phonenumber": "+918939243462",[0m[39m
+[35m[97m	"device_token": "this will be my device token"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[17-07-2022 23:57:15 17-07-2022 23:57:15] : [35mhttp[39m - [35m[95mResponse Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"status": 400,[0m[39m
+[35m[97m	"success": false,[0m[39m
+[35m[97m	"message": "password required"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[17-07-2022 23:57:15 17-07-2022 23:57:15] : [35mhttp[39m - [35m[96mResponse: [33m400 [37m215.153 ms [39m
+[35m[39m

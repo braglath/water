@@ -1,6 +1,8 @@
 const jwt = require("../services/jwt_services");
 const sql = require("../services/registration/sql_functions");
 const sqlFunct = require("../services/login/sql_functions");
+const sendCustomerDetails = require("../services/sendDetails/send_customer_details");
+const sendProviderDetails = require("../services/sendDetails/send_provider_details");
 
 module.exports = function (req, res, next) {
   const user = req.user;
@@ -25,36 +27,12 @@ module.exports = function (req, res, next) {
             userID: userID,
           },
           function (err, result) {
-            if (err) return next({ message: err.message });
-            res.json({
-              status: 200,
-              success: true,
-              data: {
-                token: {
-                  access_token: result["access_token"],
-                  refresh_token: result["refresh_token"],
-                },
-                result_id: result["result_id"],
-                type: result["type"],
-                name: result["name"],
-                email: result["email"],
-                phonenumber: result["phonenumber"],
-                profile_image: result["profile_image"],
-                geo_location: {
-                  latitude: result["latitude"],
-                  longitude: result["longitude"],
-                },
-                address: {
-                  door_number: result["door_number"],
-                  street: result["street"],
-                  city: result["city"],
-                  state: result["state"],
-                  zip_code: result["zip_code"],
-                  country: result["country"],
-                },
-                date_created: result["date_created"],
-              },
-            });
+            if (err) return next({ message: err.message }, null);
+            res.userDetails = result;
+            res.message = "success";
+            if (result["type"] === "customer") return sendCustomerDetails(res);
+            //? else this is a provider login
+            return sendProviderDetails(res);
           }
         );
       }

@@ -2,6 +2,9 @@ const fromdb = require("../../services/login/sql_functions");
 const jwtServices = require("../../services/jwt_services");
 const sqlFunctions = require("../../services/registration/sql_functions");
 
+const sendCustomerDetails = require("../../services/sendDetails/send_customer_details");
+const sendProviderDetails = require("../../services/sendDetails/send_provider_details");
+
 exports.comparePasswords = (req, res, next) => {
   const { phonenumber, password } = req.body;
   fromdb.getHashedPwd({ phonenumber: phonenumber }, function (err, result) {
@@ -47,6 +50,29 @@ exports.generateToken = (req, res, next) => {
   );
 };
 
+exports.updateDeviceToken = (req, res, next) => {
+  const { phonenumber, device_token } = req.body;
+  fromdb.getUserID(
+    {
+      phonenumber: phonenumber,
+    },
+    function (err, result) {
+      if (err) return next({ message: err.message });
+      const userID = result;
+
+      const paramsToSend = {
+        device_token: device_token,
+        user_id: userID,
+      };
+
+      sqlFunctions.updateDeviceToken(paramsToSend, function (err, result) {
+        if (err) return next({ message: err.message });
+        next();
+      });
+    }
+  );
+};
+
 exports.getUserDetails = (req, res, next) => {
   const userID = req.userID;
   sqlFunctions.getUserDetails(
@@ -54,37 +80,12 @@ exports.getUserDetails = (req, res, next) => {
       userID: userID,
     },
     function (err, result) {
-      if (err) return next({ message: err.message });
-      res.status(200).json({
-        status: 200,
-        success: true,
-        message: "logged in successfully",
-        data: {
-          token: {
-            access_token: result["access_token"],
-            refresh_token: result["refresh_token"],
-          },
-          user_id: result["user_id"],
-          type: result["type"],
-          name: result["name"],
-          email: result["email"],
-          phonenumber: result["phonenumber"],
-          profile_image: result["profile_image"],
-          geo_location: {
-            latitude: result["latitude"],
-            longitude: result["longitude"],
-          },
-          address: {
-            door_number: result["door_number"],
-            street: result["street"],
-            city: result["city"],
-            state: result["state"],
-            zip_code: result["zip_code"],
-            country: result["country"],
-          },
-          date_created: result["date_created"],
-        },
-      });
+      if (err) return next({ message: err.message }, null);
+      res.userDetails = result;
+      res.message = "success";
+      if (result["type"] === "customer") return sendCustomerDetails(res);
+      //? else this is a provider login
+      return sendProviderDetails(res);
     }
   );
 };

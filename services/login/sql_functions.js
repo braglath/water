@@ -12,8 +12,8 @@ exports.addTokens = function (params, callback) {
   WHERE user_id = ${userID}
   `;
 
-  console.log(access_token);
-  console.log(refresh_token);
+  // console.log(access_token);
+  // console.log(refresh_token);
 
   mysql.query(sqlQuery, function (err, result) {
     if (err) return callback({ message: err.message }, null);
@@ -32,6 +32,7 @@ exports.getHashedPwd = function (params, callback) {
 
   mysql.query(sqlQuery, function (err, result) {
     if (err) callback({ message: err.message }, null);
+    if (result.length == 0) return callback({ message: "no user found" }, null);
     const hashedPassword = result[0]["password"];
     return callback(null, { hashedPassword: hashedPassword });
   });
@@ -40,10 +41,10 @@ exports.getHashedPwd = function (params, callback) {
 exports.comparePwds = async function (params, callback) {
   const hashedPassword = params["hashedPassword"];
   const normalPassword = params["normalPassword"];
-  console.log(hashedPassword);
-  console.log(normalPassword);
+  // console.log(hashedPassword);
+  // console.log(normalPassword);
   const comparePasswords = await bcrypt.compare(normalPassword, hashedPassword);
-  console.log(comparePasswords);
+  // console.log(comparePasswords);
   if (comparePasswords) {
     return callback(null, "passed");
   } else {

@@ -34,7 +34,7 @@ exports.insertProviderShowDetails = (params, callback) => {
   const images = `${JSON.stringify(params["images"]).slice(0, -4)}]`;
   const damaged_can_cost = params["damaged_can_cost"];
 
-  console.log(`images ~ ${images}`);
+  // console.log(`images ~ ${images}`);
   var sqlQuery = `
   INSERT INTO provider_shop_details (user_id, shop_name, shop_images, shop_contact_number, geo_location_id, damaged_can_cost)
   VALUES ( '${user_id}', '${shop_name}', '${images}', '${contact_number}' , '${52}', '${damaged_can_cost}')`;
@@ -58,8 +58,8 @@ exports.findIfPhoneNumberExists = (params, callback) => {
   mysql.query(sqlQuery, function (err, result) {
     if (err) return callback({ message: err.message }, null);
     //? else
-    console.log(`shop contact number ~ result length ~ ${result.length}`);
-    console.log(`shop contact number ~ result length ~ ${result.length}`);
+    // console.log(`shop contact number ~ result length ~ ${result.length}`);
+    // console.log(`shop contact number ~ result length ~ ${result.length}`);
     if (result.length !== 0)
       return callback({ message: "shop contact number already in use" }, null);
     //? else
@@ -100,7 +100,7 @@ WHERE u.user_id = '${userID}';`;
   mysql.query(sqlQuery, function (err, result) {
     if (err) return callback({ message: err.message }, null);
     //? else
-    console.log(result);
+    // console.log(result);
     return callback(null, result[0]);
   });
 };

@@ -2,6 +2,7 @@ const mysql = require("../config/mysql_config");
 
 const jwt = require("../services/jwt_services");
 const sqlServices = require("../services/registration/sql_functions");
+const sendCustomerDetails = require("../services/sendDetails/send_customer_details");
 
 exports.checkUserExists = (req, res, next) => {
   const phonenumber = req.body.phonenumber;
@@ -63,10 +64,10 @@ exports.registerUser = function (req, res, next) {
       if (err) return next({ message: err.message });
       //? else
       const userID = result;
-      console.log(userID);
+      // console.log(userID);
       jwt(userID, function (err, result) {
-        console.log(result["access_token"]);
-        console.log(result["refresh_token"]);
+        // console.log(result["access_token"]);
+        // console.log(result["refresh_token"]);
 
         const access_token = result["access_token"];
         const refresh_token = result["refresh_token"];
@@ -106,40 +107,18 @@ exports.registerUser = function (req, res, next) {
                 userID: userID,
               };
 
-              sqlServices.getUserDetails(paramsToSend, function (err, result) {
-                if (err) return next({ message: err.message });
-
-                res.json({
-                  status: 200,
-                  success: true,
-                  message: "Customer registered successfully",
-                  data: {
-                    token: {
-                      access_token: result["access_token"],
-                      refresh_token: result["refresh_token"],
-                    },
-                    result_id: result["result_id"],
-                    type: result["type"],
-                    name: result["name"],
-                    email: result["email"],
-                    phonenumber: result["phonenumber"],
-                    profile_image: result["profile_image"],
-                    geo_location: {
-                      latitude: result["latitude"],
-                      longitude: result["longitude"],
-                    },
-                    address: {
-                      door_number: result["door_number"],
-                      street: result["street"],
-                      city: result["city"],
-                      state: result["state"],
-                      zip_code: result["zip_code"],
-                      country: result["country"],
-                    },
-                    date_created: result["date_created"],
-                  },
-                });
-              });
+              sqlServices.getCustomerRegisDetails(
+                paramsToSend,
+                function (err, result) {
+                  if (err) return next({ message: err.message }, null);
+                  res.userDetails = result;
+                  // console.log(
+                  //   `customer register user ~ res.userDetails ~ ${res.userDetails}`
+                  // );
+                  res.message = "registered successfully";
+                  return sendCustomerDetails(res);
+                }
+              );
             });
           });
         });
