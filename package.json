@@ -4,7 +4,7 @@
   "description": "spp for water subscriptions",
   "main": "index.js",
   "scripts": {
-    "startServer": "nodemon server.js",
+    "server": "nodemon server.js",
     "test": "jest --watchAll --runInBand"
   },
   "keywords": [],
