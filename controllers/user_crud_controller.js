@@ -1,4 +1,4 @@
-const sql = require("../services/sql/delete_user");
+const sql = require("../services/sql/crud_user");
 const sendCustomerDetails = require("../services/sendDetails/send_customer_details");
 const sendProviderDetails = require("../services/sendDetails/send_provider_details");
 
@@ -27,5 +27,27 @@ exports.deleteUser = (req, res, next) => {
       status: 200,
       message: "deleted successfully",
     });
+  });
+};
+
+exports.updateCustomer = (req, res, next) => {
+  const paramsToSend = {
+    user_id: req.user["user_id"],
+    username: req.body.username,
+    phonenumber: req.body.phonenumber,
+    profileimage: req.body.profileimage,
+    latitude: req.body.latitude,
+    longitude: req.body.longitude,
+    door_number: req.body.door_number,
+    street: req.body.street,
+    city: req.body.city,
+    state: req.body.state,
+    country: req.body.country,
+  };
+  sql.updateCustomer(paramsToSend, function (err, result) {
+    if (err) return next({ message: err.message });
+    res.message = "updated successfully";
+    res.userDetails = result;
+    return sendCustomerDetails(res);
   });
 };

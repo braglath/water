@@ -2,7 +2,7 @@ const mysql = require("../../config/mysql_config"); //? this will automatically 
 
 module.exports = function (req, res, next) {
   //? validate fields here
-  // console.log(req.userID); //? from verify jwt middleware
+  console.log(req.userID); //? from verify jwt middleware
   const userID = req.params.id;
   if (req.userID == userID) {
     var userDetailsSqlQuery = `
@@ -18,10 +18,11 @@ WHERE u.user_id = '${userID}';
 `;
     mysql.query(userDetailsSqlQuery, function (err, result) {
       if (err) return next({ message: "error" });
+      console.log(result[0]);
       if (result.length == 0) {
         next({ message: "no user found" });
       }
-      if (result["type"] === "customer") {
+      if (result[0]["type"] === "customer") {
         req.user = result[0]; //? sending the first result
         next();
         return;

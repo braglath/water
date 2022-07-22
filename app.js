@@ -1,4 +1,3 @@
-
 require("dotenv").config();
 
 const express = require("express");
@@ -11,7 +10,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(bodyParser.json());
 
-
 const customerRegisterRoute = require("./routes/customer_register_route");
 const providerRegisterRoute = require("./routes/provider_register_route");
 const errorHandler = require("./middlewares/error_handler");
@@ -22,19 +20,18 @@ const loginWPwdRoute = require("./routes/login_w_password_route");
 const jwtAuth = require("./middlewares/jwt_verify_middleware");
 const verifyJWT = require("./middlewares/auth/verify_jwt");
 
-
 //? FOR LOGGING ALL REQUEST ////////////////////
-const loggerStream = {
-  write: (message) => {
-    Logger.http(message);
-  },
-};
-morganBody(app, {
-  // .. other settings
-  logAllReqHeader: true,
-  maxBodyLength: 5000,
-  stream: loggerStream,
-});
+// const loggerStream = {
+//   write: (message) => {
+//     Logger.http(message);
+//   },
+// };
+// morganBody(app, {
+//   // .. other settings
+//   logAllReqHeader: true,
+//   maxBodyLength: 5000,
+//   stream: loggerStream,
+// });
 //? ///////////////////////////////////f
 
 app.use("/api/register/customer", customerRegisterRoute);
@@ -47,7 +44,5 @@ app.use(verifyJWT);
 app.use("/api/register/provider", providerRegisterRoute);
 app.use("/api/user", userCRUDRoute);
 app.use(errorHandler);
-
-
 
 module.exports = app;

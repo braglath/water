@@ -1,0 +1,322 @@
+[23-07-2022 00:04:24 23-07-2022 00:04:24] : [35mhttp[39m - [35m[39m
+[35m[96mRequest: [93mPOST [97m/api/login headers[content-type=application/json;user-agent=PostmanRuntime/7.29.2;accept=*/*;cache-control=no-cache;postman-token=78075f26-e0c8-452a-b141-ca2a4d38f483;host=localhost:5000;accept-encoding=gzip, deflate, br;connection=keep-alive;content-length=84] [90mat [37mSat Jul 23 2022 00:04:24 GMT+0530, [90mIP: [37m::1[0m, [90mUser Agent: PostmanRuntime/7.29.2[0m[39m
+[35m[39m
+[23-07-2022 00:04:24 23-07-2022 00:04:24] : [35mhttp[39m - [35m[95mRequest Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"phonenumber": "+919840620323",[0m[39m
+[35m[97m	"device_token": "santhiya device token"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[23-07-2022 00:04:24 23-07-2022 00:04:24] : [35mhttp[39m - [35m[95mResponse Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"status": 200,[0m[39m
+[35m[97m	"success": true,[0m[39m
+[35m[97m	"message": "success",[0m[39m
+[35m[97m	"data": {[0m[39m
+[35m[97m		"token": {[0m[39m
+[35m[97m			"access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxOCwiaWF0IjoxNjU4NTE0ODYzLCJleHAiOjE2NTg1NDM2NjN9.R2Z-0YKLymPq-0PfkZvM87rMPf_XI3642E2OKPh7oMg",[0m[39m
+[35m[97m			"refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxOCwiaWF0IjoxNjU4NTE0ODYzLCJleHAiOjE2NTg1NDM2NjN9.9rTeoVmJ8b7MPzrANGZEqKMxeNWdTCTxGSNiaDwuaAM"[0m[39m
+[35m[97m		},[0m[39m
+[35m[97m		"id": 18,[0m[39m
+[35m[97m		"type": "customer",[0m[39m
+[35m[97m		"name": "Santhiya",[0m[39m
+[35m[97m		"email": "santhiyabraglath@gmail.com",[0m[39m
+[35m[97m		"phonenumber": "+919840620323",[0m[39m
+[35m[97m		"profile_image": "https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg.jpg",[0m[39m
+[35m[97m		"geo_location": {[0m[39m
+[35m[97m			"latitude": 13.0109,[0m[39m
+[35m[97m			"longitude": 80.1544[0m[39m
+[35m[97m		},[0m[39m
+[35m[97m		"address": {[0m[39m
+[35m[97m			"door_number": "28",[0m[39m
+[35m[97m			"street": "devi karumari amman nagar, first street, kolapakkam",[0m[39m
+[35m[97m			"city": "Chennai",[0m[39m
+[35m[97m			"state": "Tamil Nadu",[0m[39m
+[35m[97m			"zip_code": 600122,[0m[39m
+[35m[97m			"country": "India"[0m[39m
+[35m[97m		},[0m[39m
+[35m[97m		"date_created": "2022-07-19T12:44:42.000Z"[0m[39m
+[35m[97m	}[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[23-07-2022 00:04:24 23-07-2022 00:04:24] : [35mhttp[39m - [35m[96mResponse: [32m200 [37m895.577 ms [39m
+[35m[39m
+[23-07-2022 00:04:44 23-07-2022 00:04:44] : [35mhttp[39m - [35m[39m
+[35m[96mRequest: [93mGET [97m/api/user/18 headers[authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxOCwiaWF0IjoxNjU4MjU2ODg5LCJleHAiOjE2NTgyODU2ODl9.34PhJS7NdFtyZr1LM38-ZLyPohX6NmDACJGUM6yjTuk;user-agent=PostmanRuntime/7.29.2;accept=*/*;cache-control=no-cache;postman-token=d9694a95-8ed5-4d21-b285-54766efbe4c2;host=localhost:5000;accept-encoding=gzip, deflate, br;connection=keep-alive] [90mat [37mSat Jul 23 2022 00:04:44 GMT+0530, [90mIP: [37m::1[0m, [90mUser Agent: PostmanRuntime/7.29.2[0m[39m
+[35m[39m
+[23-07-2022 00:04:44 23-07-2022 00:04:44] : [35mhttp[39m - [35m[95mResponse Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"status": 403,[0m[39m
+[35m[97m	"success": false,[0m[39m
+[35m[97m	"message": "Forbidden"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[23-07-2022 00:04:44 23-07-2022 00:04:44] : [35mhttp[39m - [35m[96mResponse: [33m403 [37m4.321 ms [39m
+[35m[39m
+[23-07-2022 00:04:53 23-07-2022 00:04:53] : [35mhttp[39m - [35m[39m
+[35m[96mRequest: [93mGET [97m/api/user/18 headers[authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxOCwiaWF0IjoxNjU4NTE0ODYzLCJleHAiOjE2NTg1NDM2NjN9.R2Z-0YKLymPq-0PfkZvM87rMPf_XI3642E2OKPh7oMg;user-agent=PostmanRuntime/7.29.2;accept=*/*;cache-control=no-cache;postman-token=7830de21-33af-4191-bac1-4c758ad887ba;host=localhost:5000;accept-encoding=gzip, deflate, br;connection=keep-alive] [90mat [37mSat Jul 23 2022 00:04:53 GMT+0530, [90mIP: [37m::1[0m, [90mUser Agent: PostmanRuntime/7.29.2[0m[39m
+[35m[39m
+[23-07-2022 00:04:53 23-07-2022 00:04:53] : [35mhttp[39m - [35m[95mResponse Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"status": 200,[0m[39m
+[35m[97m	"success": true,[0m[39m
+[35m[97m	"message": "success",[0m[39m
+[35m[97m	"data": {[0m[39m
+[35m[97m		"token": {[0m[39m
+[35m[97m			"access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxOCwiaWF0IjoxNjU4NTE0ODYzLCJleHAiOjE2NTg1NDM2NjN9.R2Z-0YKLymPq-0PfkZvM87rMPf_XI3642E2OKPh7oMg",[0m[39m
+[35m[97m			"refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxOCwiaWF0IjoxNjU4NTE0ODYzLCJleHAiOjE2NTg1NDM2NjN9.9rTeoVmJ8b7MPzrANGZEqKMxeNWdTCTxGSNiaDwuaAM"[0m[39m
+[35m[97m		},[0m[39m
+[35m[97m		"id": 18,[0m[39m
+[35m[97m		"type": "customer",[0m[39m
+[35m[97m		"name": "Santhiya",[0m[39m
+[35m[97m		"email": "santhiyabraglath@gmail.com",[0m[39m
+[35m[97m		"phonenumber": "+919840620323",[0m[39m
+[35m[97m		"profile_image": "https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg.jpg",[0m[39m
+[35m[97m		"geo_location": {[0m[39m
+[35m[97m			"latitude": 13.0109,[0m[39m
+[35m[97m			"longitude": 80.1544[0m[39m
+[35m[97m		},[0m[39m
+[35m[97m		"address": {[0m[39m
+[35m[97m			"door_number": "28",[0m[39m
+[35m[97m			"street": "devi karumari amman nagar, first street, kolapakkam",[0m[39m
+[35m[97m			"city": "Chennai",[0m[39m
+[35m[97m			"state": "Tamil Nadu",[0m[39m
+[35m[97m			"zip_code": 600122,[0m[39m
+[35m[97m			"country": "India"[0m[39m
+[35m[97m		},[0m[39m
+[35m[97m		"date_created": "2022-07-19T12:44:42.000Z"[0m[39m
+[35m[97m	}[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[23-07-2022 00:04:53 23-07-2022 00:04:53] : [35mhttp[39m - [35m[96mResponse: [32m200 [37m14.198 ms [39m
+[35m[39m
+[23-07-2022 00:10:15 23-07-2022 00:10:15] : [35mhttp[39m - [35m[39m
+[35m[96mRequest: [93mPUT [97m/api/user/18/customer headers[authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxOCwiaWF0IjoxNjU4MjU2ODg5LCJleHAiOjE2NTgyODU2ODl9.34PhJS7NdFtyZr1LM38-ZLyPohX6NmDACJGUM6yjTuk;content-type=application/json;user-agent=PostmanRuntime/7.29.2;accept=*/*;cache-control=no-cache;postman-token=784b0f9f-3382-4429-96a9-062b33b62e78;host=localhost:5000;accept-encoding=gzip, deflate, br;connection=keep-alive;content-length=465] [90mat [37mSat Jul 23 2022 00:10:15 GMT+0530, [90mIP: [37m::1[0m, [90mUser Agent: PostmanRuntime/7.29.2[0m[39m
+[35m[39m
+[23-07-2022 00:10:15 23-07-2022 00:10:15] : [35mhttp[39m - [35m[95mRequest Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"username": "Santhiya",[0m[39m
+[35m[97m	"phonenumber": "+919840620323",[0m[39m
+[35m[97m	"password": "Brad@180794",[0m[39m
+[35m[97m	"profileimage": "https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg.jpg",[0m[39m
+[35m[97m	"latitude": 13.010909,[0m[39m
+[35m[97m	"longitude": 80.154416,[0m[39m
+[35m[97m	"door_number": "28",[0m[39m
+[35m[97m	"street": "devi karumari amman nagar, first street, kolapakkam",[0m[39m
+[35m[97m	"city": "Chennai",[0m[39m
+[35m[97m	"state": "Tamil Nadu",[0m[39m
+[35m[97m	"zip_code": 600122,[0m[39m
+[35m[97m	"country": "India"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[23-07-2022 00:10:15 23-07-2022 00:10:15] : [35mhttp[39m - [35m[95mResponse Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"status": 403,[0m[39m
+[35m[97m	"success": false,[0m[39m
+[35m[97m	"message": "Forbidden"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[23-07-2022 00:10:15 23-07-2022 00:10:15] : [35mhttp[39m - [35m[96mResponse: [33m403 [37m7.017 ms [39m
+[35m[39m
+[23-07-2022 00:10:38 23-07-2022 00:10:38] : [35mhttp[39m - [35m[39m
+[35m[96mRequest: [93mPUT [97m/api/user/18/customer headers[authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxOCwiaWF0IjoxNjU4NTE0ODYzLCJleHAiOjE2NTg1NDM2NjN9.R2Z-0YKLymPq-0PfkZvM87rMPf_XI3642E2OKPh7oMg;content-type=application/json;user-agent=PostmanRuntime/7.29.2;accept=*/*;cache-control=no-cache;postman-token=fa611f07-1985-417b-ae9b-5b7694d507c7;host=localhost:5000;accept-encoding=gzip, deflate, br;connection=keep-alive;content-length=465] [90mat [37mSat Jul 23 2022 00:10:38 GMT+0530, [90mIP: [37m::1[0m, [90mUser Agent: PostmanRuntime/7.29.2[0m[39m
+[35m[39m
+[23-07-2022 00:10:38 23-07-2022 00:10:38] : [35mhttp[39m - [35m[95mRequest Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"username": "Santhiya",[0m[39m
+[35m[97m	"phonenumber": "+919840620323",[0m[39m
+[35m[97m	"password": "Brad@180794",[0m[39m
+[35m[97m	"profileimage": "https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg.jpg",[0m[39m
+[35m[97m	"latitude": 13.010909,[0m[39m
+[35m[97m	"longitude": 80.154416,[0m[39m
+[35m[97m	"door_number": "28",[0m[39m
+[35m[97m	"street": "devi karumari amman nagar, first street, kolapakkam",[0m[39m
+[35m[97m	"city": "Chennai",[0m[39m
+[35m[97m	"state": "Tamil Nadu",[0m[39m
+[35m[97m	"zip_code": 600122,[0m[39m
+[35m[97m	"country": "India"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[23-07-2022 00:10:38 23-07-2022 00:10:38] : [35mhttp[39m - [35m[95mResponse Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"status": 200,[0m[39m
+[35m[97m	"message": "updated successfully"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[23-07-2022 00:10:38 23-07-2022 00:10:38] : [35mhttp[39m - [35m[96mResponse: [32m200 [37m19.276 ms [39m
+[35m[39m
+[23-07-2022 00:11:59 23-07-2022 00:11:59] : [35mhttp[39m - [35m[39m
+[35m[96mRequest: [93mGET [97m/api/user/18 headers[authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxOCwiaWF0IjoxNjU4NTE0ODYzLCJleHAiOjE2NTg1NDM2NjN9.R2Z-0YKLymPq-0PfkZvM87rMPf_XI3642E2OKPh7oMg;user-agent=PostmanRuntime/7.29.2;accept=*/*;cache-control=no-cache;postman-token=ec25bc10-1dd2-4f7b-a54d-6646d6b2cf9d;host=localhost:5000;accept-encoding=gzip, deflate, br;connection=keep-alive] [90mat [37mSat Jul 23 2022 00:11:59 GMT+0530, [90mIP: [37m::1[0m, [90mUser Agent: PostmanRuntime/7.29.2[0m[39m
+[35m[39m
+[23-07-2022 00:11:59 23-07-2022 00:11:59] : [35mhttp[39m - [35m[95mResponse Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"status": 200,[0m[39m
+[35m[97m	"success": true,[0m[39m
+[35m[97m	"message": "success",[0m[39m
+[35m[97m	"data": {[0m[39m
+[35m[97m		"token": {[0m[39m
+[35m[97m			"access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxOCwiaWF0IjoxNjU4NTE0ODYzLCJleHAiOjE2NTg1NDM2NjN9.R2Z-0YKLymPq-0PfkZvM87rMPf_XI3642E2OKPh7oMg",[0m[39m
+[35m[97m			"refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxOCwiaWF0IjoxNjU4NTE0ODYzLCJleHAiOjE2NTg1NDM2NjN9.9rTeoVmJ8b7MPzrANGZEqKMxeNWdTCTxGSNiaDwuaAM"[0m[39m
+[35m[97m		},[0m[39m
+[35m[97m		"id": 18,[0m[39m
+[35m[97m		"type": "customer",[0m[39m
+[35m[97m		"name": "Santhiya",[0m[39m
+[35m[97m		"email": "santhiyabraglath@gmail.com",[0m[39m
+[35m[97m		"phonenumber": "+919840620323",[0m[39m
+[35m[97m		"profile_image": "https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg.jpg",[0m[39m
+[35m[97m		"geo_location": {[0m[39m
+[35m[97m			"latitude": 13.0109,[0m[39m
+[35m[97m			"longitude": 80.1544[0m[39m
+[35m[97m		},[0m[39m
+[35m[97m		"address": {[0m[39m
+[35m[97m			"door_number": "28",[0m[39m
+[35m[97m			"street": "devi karumari amman nagar, first street, kolapakkam",[0m[39m
+[35m[97m			"city": "Chennai",[0m[39m
+[35m[97m			"state": "Tamil Nadu",[0m[39m
+[35m[97m			"zip_code": 600122,[0m[39m
+[35m[97m			"country": "India"[0m[39m
+[35m[97m		},[0m[39m
+[35m[97m		"date_created": "2022-07-19T12:44:42.000Z"[0m[39m
+[35m[97m	}[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[23-07-2022 00:11:59 23-07-2022 00:11:59] : [35mhttp[39m - [35m[96mResponse: [32m200 [37m25.435 ms [39m
+[35m[39m
+[23-07-2022 00:12:36 23-07-2022 00:12:36] : [35mhttp[39m - [35m[39m
+[35m[96mRequest: [93mPUT [97m/api/user/18/customer headers[authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxOCwiaWF0IjoxNjU4NTE0ODYzLCJleHAiOjE2NTg1NDM2NjN9.R2Z-0YKLymPq-0PfkZvM87rMPf_XI3642E2OKPh7oMg;content-type=application/json;user-agent=PostmanRuntime/7.29.2;accept=*/*;cache-control=no-cache;postman-token=51f3bd79-8579-4520-bd59-67c6dddc1c52;host=localhost:5000;accept-encoding=gzip, deflate, br;connection=keep-alive;content-length=465] [90mat [37mSat Jul 23 2022 00:12:36 GMT+0530, [90mIP: [37m::1[0m, [90mUser Agent: PostmanRuntime/7.29.2[0m[39m
+[35m[39m
+[23-07-2022 00:12:36 23-07-2022 00:12:36] : [35mhttp[39m - [35m[95mRequest Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"username": "Santhiya",[0m[39m
+[35m[97m	"phonenumber": "+919840620323",[0m[39m
+[35m[97m	"password": "Brad@180794",[0m[39m
+[35m[97m	"profileimage": "https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg.jpg",[0m[39m
+[35m[97m	"latitude": 13.010909,[0m[39m
+[35m[97m	"longitude": 80.154416,[0m[39m
+[35m[97m	"door_number": "28",[0m[39m
+[35m[97m	"street": "devi karumari amman nagar, first street, kolapakkam",[0m[39m
+[35m[97m	"city": "Chennai",[0m[39m
+[35m[97m	"state": "Tamil Nadu",[0m[39m
+[35m[97m	"zip_code": 600122,[0m[39m
+[35m[97m	"country": "India"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[23-07-2022 00:12:36 23-07-2022 00:12:36] : [35mhttp[39m - [35m[95mResponse Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"status": 400,[0m[39m
+[35m[97m	"success": false,[0m[39m
+[35m[97m	"message": "Cannot read properties of undefined (reading 'name')"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[23-07-2022 00:12:36 23-07-2022 00:12:36] : [35mhttp[39m - [35m[96mResponse: [33m400 [37m15.985 ms [39m
+[35m[39m
+[23-07-2022 00:12:58 23-07-2022 00:12:58] : [35mhttp[39m - [35m[39m
+[35m[96mRequest: [93mPUT [97m/api/user/18/customer headers[authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxOCwiaWF0IjoxNjU4NTE0ODYzLCJleHAiOjE2NTg1NDM2NjN9.R2Z-0YKLymPq-0PfkZvM87rMPf_XI3642E2OKPh7oMg;content-type=application/json;user-agent=PostmanRuntime/7.29.2;accept=*/*;cache-control=no-cache;postman-token=b66c8714-76bd-47e4-a6dc-b0830eab49c5;host=localhost:5000;accept-encoding=gzip, deflate, br;connection=keep-alive;content-length=465] [90mat [37mSat Jul 23 2022 00:12:58 GMT+0530, [90mIP: [37m::1[0m, [90mUser Agent: PostmanRuntime/7.29.2[0m[39m
+[35m[39m
+[23-07-2022 00:12:58 23-07-2022 00:12:58] : [35mhttp[39m - [35m[95mRequest Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"username": "Santhiya",[0m[39m
+[35m[97m	"phonenumber": "+919840620323",[0m[39m
+[35m[97m	"password": "Brad@180794",[0m[39m
+[35m[97m	"profileimage": "https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg.jpg",[0m[39m
+[35m[97m	"latitude": 13.010909,[0m[39m
+[35m[97m	"longitude": 80.154416,[0m[39m
+[35m[97m	"door_number": "28",[0m[39m
+[35m[97m	"street": "devi karumari amman nagar, first street, kolapakkam",[0m[39m
+[35m[97m	"city": "Chennai",[0m[39m
+[35m[97m	"state": "Tamil Nadu",[0m[39m
+[35m[97m	"zip_code": 600122,[0m[39m
+[35m[97m	"country": "India"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[23-07-2022 00:12:58 23-07-2022 00:12:58] : [35mhttp[39m - [35m[95mResponse Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"status": 200,[0m[39m
+[35m[97m	"message": "updated successfully"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[23-07-2022 00:12:58 23-07-2022 00:12:58] : [35mhttp[39m - [35m[96mResponse: [32m200 [37m23.746 ms [39m
+[35m[39m
+[23-07-2022 00:13:28 23-07-2022 00:13:28] : [35mhttp[39m - [35m[39m
+[35m[96mRequest: [93mPUT [97m/api/user/18/customer headers[authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxOCwiaWF0IjoxNjU4NTE0ODYzLCJleHAiOjE2NTg1NDM2NjN9.R2Z-0YKLymPq-0PfkZvM87rMPf_XI3642E2OKPh7oMg;content-type=application/json;user-agent=PostmanRuntime/7.29.2;accept=*/*;cache-control=no-cache;postman-token=77ceba78-0f56-4419-9291-210d16a5ffe9;host=localhost:5000;accept-encoding=gzip, deflate, br;connection=keep-alive;content-length=465] [90mat [37mSat Jul 23 2022 00:13:28 GMT+0530, [90mIP: [37m::1[0m, [90mUser Agent: PostmanRuntime/7.29.2[0m[39m
+[35m[39m
+[23-07-2022 00:13:28 23-07-2022 00:13:28] : [35mhttp[39m - [35m[95mRequest Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"username": "Santhiya",[0m[39m
+[35m[97m	"phonenumber": "+919840620323",[0m[39m
+[35m[97m	"password": "Brad@180794",[0m[39m
+[35m[97m	"profileimage": "https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg.jpg",[0m[39m
+[35m[97m	"latitude": 13.010909,[0m[39m
+[35m[97m	"longitude": 80.154416,[0m[39m
+[35m[97m	"door_number": "28",[0m[39m
+[35m[97m	"street": "devi karumari amman nagar, first street, kolapakkam",[0m[39m
+[35m[97m	"city": "Chennai",[0m[39m
+[35m[97m	"state": "Tamil Nadu",[0m[39m
+[35m[97m	"zip_code": 600122,[0m[39m
+[35m[97m	"country": "India"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[23-07-2022 00:13:28 23-07-2022 00:13:28] : [35mhttp[39m - [35m[95mResponse Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"status": 200,[0m[39m
+[35m[97m	"message": "updated successfully"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[23-07-2022 00:13:28 23-07-2022 00:13:28] : [35mhttp[39m - [35m[96mResponse: [32m200 [37m25.469 ms [39m
+[35m[39m
+[23-07-2022 00:17:36 23-07-2022 00:17:36] : [35mhttp[39m - [35m[39m
+[35m[96mRequest: [93mPUT [97m/api/user/18/customer headers[authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxOCwiaWF0IjoxNjU4NTE0ODYzLCJleHAiOjE2NTg1NDM2NjN9.R2Z-0YKLymPq-0PfkZvM87rMPf_XI3642E2OKPh7oMg;content-type=application/json;user-agent=PostmanRuntime/7.29.2;accept=*/*;cache-control=no-cache;postman-token=c244fa35-4c05-4df2-9f68-3d0847c7a09e;host=localhost:5000;accept-encoding=gzip, deflate, br;connection=keep-alive;content-length=469] [90mat [37mSat Jul 23 2022 00:17:36 GMT+0530, [90mIP: [37m::1[0m, [90mUser Agent: PostmanRuntime/7.29.2[0m[39m
+[35m[39m
+[23-07-2022 00:17:36 23-07-2022 00:17:36] : [35mhttp[39m - [35m[95mRequest Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"username": "Santhiya New",[0m[39m
+[35m[97m	"phonenumber": "+919840620323",[0m[39m
+[35m[97m	"password": "Brad@180794",[0m[39m
+[35m[97m	"profileimage": "https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg.jpg",[0m[39m
+[35m[97m	"latitude": 13.010909,[0m[39m
+[35m[97m	"longitude": 80.154416,[0m[39m
+[35m[97m	"door_number": "28",[0m[39m
+[35m[97m	"street": "devi karumari amman nagar, first street, kolapakkam",[0m[39m
+[35m[97m	"city": "Chennai",[0m[39m
+[35m[97m	"state": "Tamil Nadu",[0m[39m
+[35m[97m	"zip_code": 600122,[0m[39m
+[35m[97m	"country": "India"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[23-07-2022 00:17:36 23-07-2022 00:17:36] : [35mhttp[39m - [35m[95mResponse Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"status": 400,[0m[39m
+[35m[97m	"success": false,[0m[39m
+[35m[97m	"message": "ER_TRUNCATED_WRONG_VALUE: Truncated incorrect DOUBLE value: '{userDetails[\"id\"]}'"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[23-07-2022 00:17:36 23-07-2022 00:17:36] : [35mhttp[39m - [35m[96mResponse: [33m400 [37m136.454 ms [39m
+[35m[39m
+[23-07-2022 00:19:07 23-07-2022 00:19:07] : [35mhttp[39m - [35m[39m
+[35m[96mRequest: [93mPUT [97m/api/user/18/customer headers[authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxOCwiaWF0IjoxNjU4NTE0ODYzLCJleHAiOjE2NTg1NDM2NjN9.R2Z-0YKLymPq-0PfkZvM87rMPf_XI3642E2OKPh7oMg;content-type=application/json;user-agent=PostmanRuntime/7.29.2;accept=*/*;cache-control=no-cache;postman-token=d9dd1734-1490-4e40-bc3e-041d7961d4c5;host=localhost:5000;accept-encoding=gzip, deflate, br;connection=keep-alive;content-length=469] [90mat [37mSat Jul 23 2022 00:19:07 GMT+0530, [90mIP: [37m::1[0m, [90mUser Agent: PostmanRuntime/7.29.2[0m[39m
+[35m[39m
+[23-07-2022 00:19:07 23-07-2022 00:19:07] : [35mhttp[39m - [35m[95mRequest Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"username": "Santhiya New",[0m[39m
+[35m[97m	"phonenumber": "+919840620323",[0m[39m
+[35m[97m	"password": "Brad@180794",[0m[39m
+[35m[97m	"profileimage": "https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg.jpg",[0m[39m
+[35m[97m	"latitude": 13.010909,[0m[39m
+[35m[97m	"longitude": 80.154416,[0m[39m
+[35m[97m	"door_number": "28",[0m[39m
+[35m[97m	"street": "devi karumari amman nagar, first street, kolapakkam",[0m[39m
+[35m[97m	"city": "Chennai",[0m[39m
+[35m[97m	"state": "Tamil Nadu",[0m[39m
+[35m[97m	"zip_code": 600122,[0m[39m
+[35m[97m	"country": "India"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[23-07-2022 00:19:07 23-07-2022 00:19:07] : [35mhttp[39m - [35m[95mResponse Body:[0m[39m
+[35m[97m{[0m[39m
+[35m[97m	"status": 400,[0m[39m
+[35m[97m	"success": false,[0m[39m
+[35m[97m	"message": "ER_TRUNCATED_WRONG_VALUE: Truncated incorrect DOUBLE value: 'undefined'"[0m[39m
+[35m[97m}[0m[39m
+[35m[39m
+[23-07-2022 00:19:07 23-07-2022 00:19:07] : [35mhttp[39m - [35m[96mResponse: [33m400 [37m31.331 ms [39m
+[35m[39m
