@@ -17,6 +17,8 @@ const userCRUDRoute = require("./routes/crud_user_route");
 const loginRoute = require("./routes/login_route");
 const deleteUser = require("./routes/delete_user_route");
 const loginWPwdRoute = require("./routes/login_w_password_route");
+const waterReminderRoute = require("./routes/water_reminder_route");
+
 const jwtAuth = require("./middlewares/jwt_verify_middleware");
 const verifyJWT = require("./middlewares/auth/verify_jwt");
 
@@ -43,6 +45,7 @@ app.use(jwtAuth);
 app.use(verifyJWT);
 app.use("/api/register/provider", providerRegisterRoute);
 app.use("/api/user", userCRUDRoute);
+app.use("/api/water-reminder", waterReminderRoute);
 app.use(errorHandler);
 
 module.exports = app;

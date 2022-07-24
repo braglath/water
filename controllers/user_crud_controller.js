@@ -51,3 +51,27 @@ exports.updateCustomer = (req, res, next) => {
     return sendCustomerDetails(res);
   });
 };
+
+exports.updateProvider = (req, res, next) => {
+  const paramsToSend = {
+    user_id: req.user["user_id"],
+    shop_name: req.body.shop_name,
+    contact_number: req.body.contact_number,
+    images: req.body.images,
+    damaged_can_cost: req.body.damaged_can_cost,
+    latitude: req.body.latitude,
+    longitude: req.body.longitude,
+    door_number: req.body.door_number,
+    street: req.body.street,
+    city: req.body.city,
+    state: req.body.state,
+    zip_code: req.body.zip_code,
+    country: req.body.country,
+  };
+  sql.updateProvider(paramsToSend, function (err, result) {
+    if (err) return next({ message: err.message });
+    res.message = "updated successfully";
+    res.userDetails = result;
+    return sendProviderDetails(res);
+  });
+};

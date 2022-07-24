@@ -31,7 +31,7 @@ exports.insertProviderShowDetails = (params, callback) => {
   const user_id = params["user_id"];
   const shop_name = params["shop_name"];
   const contact_number = params["contact_number"];
-  const images = `${JSON.stringify(params["images"]).slice(0, -4)}]`;
+  const images = `${JSON.stringify(params["images"]).slice(0, -1)}]`;
   const damaged_can_cost = params["damaged_can_cost"];
 
   // console.log(`images ~ ${images}`);
